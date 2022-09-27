@@ -329,7 +329,7 @@ public class MainController {
 
     @PostMapping("/post-file-type")
     public ResponseEntity<Object> createFileType(@RequestBody FileType fileType, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(fileType, headers, PATH_SERVICAD+FILE_TYPE+CREATE, HttpMethod.POST, Object.class);
+         return getObjectResponseEntity(fileType, headers, PATH_SERVICAD+FILE_TYPE+CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-file-type/{id}")
