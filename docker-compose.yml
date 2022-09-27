@@ -1,0 +1,26 @@
+version: "3"
+services:
+
+  mysqldb-facade:
+    image: mysql:5.7.12
+    ports:
+      - "3306:3306"
+    networks:
+      - spring-mysql-facade
+    environment:
+      - MYSQL_DATABASE=table_test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+
+
+  docker-spring-facade:
+    image: docker-spring-facade
+    ports:
+      - "8083:8083"
+    networks:
+      - spring-mysql-facade
+    depends_on:
+      - mysqldb-facade
+
+networks:
+  spring-mysql-facade:
