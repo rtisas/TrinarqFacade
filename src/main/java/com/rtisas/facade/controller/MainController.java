@@ -33,6 +33,9 @@ public class MainController {
     @Value("${CREATE}")
     private String CREATE;
 
+    @Value("${BITACORA}")
+    private String BITACORA;
+
     @Value("${DELETE}")
     private String DELETE;
 
@@ -231,7 +234,7 @@ public class MainController {
     @Value("${USERSROLE}")
     private String USERSROLE;
 
-    @GetMapping({ "/" })
+    @GetMapping({"/"})
     public ResponseEntity<Object> mainConnectionWithBackend(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
         return getObjectResponseEntity(null, headers, PATH_SERVICAD, HttpMethod.GET, String.class);
     }
@@ -239,267 +242,266 @@ public class MainController {
     //LOGIN
     @PostMapping("/login")
     public ResponseEntity<Object> loginSystem(@RequestBody UserLogin user) throws JsonProcessingException {
-        return getObjectResponseEntity(user, null, PATH_SERVICAD+LOGIN, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(user, null, PATH_SERVICAD + LOGIN, HttpMethod.POST, Object.class);
     }
 
     //ID_TYPES
     @GetMapping("/get-id-types/all")
     public ResponseEntity<Object> getAllIdTypes(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+IDENTIFICATION_TYPE+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + IDENTIFICATION_TYPE + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-id-type")
     public ResponseEntity<Object> createIdType(@RequestBody IdentificationType idType, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(idType, headers, PATH_SERVICAD+IDENTIFICATION_TYPE+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(idType, headers, PATH_SERVICAD + IDENTIFICATION_TYPE + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-id-type/{id}")
     public ResponseEntity<Object> updateIdType(@PathVariable Long id, @RequestBody IdentificationType idType, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(idType, headers, PATH_SERVICAD+IDENTIFICATION_TYPE+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(idType, headers, PATH_SERVICAD + IDENTIFICATION_TYPE + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-id-type/{id}")
     public ResponseEntity<Object> getOneIdType(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+IDENTIFICATION_TYPE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + IDENTIFICATION_TYPE + id, HttpMethod.GET, Object.class);
     }
 
     //CUSTOMERS
     @GetMapping("/get-customers/all")
     public ResponseEntity<Object> getAllCustomers(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+CUSTOMERS+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + CUSTOMERS + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-customer")
     public ResponseEntity<Object> createCustomer(@RequestBody CreateCustomer customer, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(customer, headers, PATH_SERVICAD+CUSTOMERS+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(customer, headers, PATH_SERVICAD + CUSTOMERS + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-customer/{id}")
     public ResponseEntity<Object> updateCustomer(@PathVariable Long id, @RequestBody Customer customer, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(customer, headers, PATH_SERVICAD+CUSTOMERS+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(customer, headers, PATH_SERVICAD + CUSTOMERS + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-customer/{id}")
     public ResponseEntity<Object> getOneCustomer(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+CUSTOMERS+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + CUSTOMERS + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-customer/{id}")
+    @DeleteMapping("/delete-customer/{id}")
     public ResponseEntity<Object> deleteCustomer(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+CUSTOMERS+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + CUSTOMERS + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
     //FILES
     @GetMapping("/get-files/all")
     public ResponseEntity<Object> getAllFiles(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+FILES+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + FILES + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-file")
     public ResponseEntity<Object> createFile(@RequestBody File file, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(file, headers, PATH_SERVICAD+FILES+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(file, headers, PATH_SERVICAD + FILES + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-file/{id}")
     public ResponseEntity<Object> updateFile(@PathVariable Long id, @RequestBody File file, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(file, headers, PATH_SERVICAD+FILES+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(file, headers, PATH_SERVICAD + FILES + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-file/{id}")
     public ResponseEntity<Object> getOneFile(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+FILES+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + FILES + id, HttpMethod.GET, Object.class);
     }
 
     //FILE_CATEGORY
     @GetMapping("/get-file-categories/all")
     public ResponseEntity<Object> getAllFileCategories(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+FILE_CATEGORY+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + FILE_CATEGORY + ALL, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-file-category/{id}")
     public ResponseEntity<Object> getOneFileCategory(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+FILE_CATEGORY+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + FILE_CATEGORY + id, HttpMethod.GET, Object.class);
     }
 
     //FILE_TYPES
     @GetMapping("/get-file-types/all")
     public ResponseEntity<Object> getAllFileTypes(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+FILE_TYPE+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + FILE_TYPE + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-file-type")
     public ResponseEntity<Object> createFileType(@RequestBody FileType fileType, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-         return getObjectResponseEntity(fileType, headers, PATH_SERVICAD+FILE_TYPE+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(fileType, headers, PATH_SERVICAD + FILE_TYPE + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-file-type/{id}")
     public ResponseEntity<Object> updateFileType(@PathVariable Long id, @RequestBody FileType fileType, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(fileType, headers, PATH_SERVICAD+FILE_TYPE+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(fileType, headers, PATH_SERVICAD + FILE_TYPE + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-file-type/{id}")
     public ResponseEntity<Object> getOneFileType(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+FILE_TYPE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + FILE_TYPE + id, HttpMethod.GET, Object.class);
     }
 
     //EPS
     @GetMapping("/get-eps/all")
     public ResponseEntity<Object> getAllEps(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EPS+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EPS + ALL, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-eps/{id}")
     public ResponseEntity<Object> getOneEps(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EPS+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EPS + id, HttpMethod.GET, Object.class);
     }
 
     //EMPLOYEES
     @GetMapping("/get-employees/all")
     public ResponseEntity<Object> getAllEmployees(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EMPLOYEES+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EMPLOYEES + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-employee")
     public ResponseEntity<Object> createEmployee(@RequestBody Employee employee, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        System.out.println(employee.getJobTitleEmployee());
-        return getObjectResponseEntity(employee, headers, PATH_SERVICAD+EMPLOYEES+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(employee, headers, PATH_SERVICAD + EMPLOYEES + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-employee/{id}")
     public ResponseEntity<Object> updateEmployee(@PathVariable Long id, @RequestBody Employee employee, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(employee, headers, PATH_SERVICAD+EMPLOYEES+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(employee, headers, PATH_SERVICAD + EMPLOYEES + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-employee/{id}")
     public ResponseEntity<Object> getOneEmployee(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EMPLOYEES+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EMPLOYEES + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-employeerole/{id}")
     public ResponseEntity<Object> getEmployeeRole(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EMPLOYEES+ROLES+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EMPLOYEES + ROLES + id, HttpMethod.GET, Object.class);
     }
 
     //ROLE
     @GetMapping("/role/all")
     public ResponseEntity<Object> getAllRoles(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+ROLES+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + ROLES + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-role")
     public ResponseEntity<Object> createRole(@RequestBody Role rol, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(rol, headers, PATH_SERVICAD+ROLES+CREATE, HttpMethod.POST, Role.class);
+        return getObjectResponseEntity(rol, headers, PATH_SERVICAD + ROLES + CREATE, HttpMethod.POST, Role.class);
     }
 
     @PutMapping("/put-role/{id}")
     public ResponseEntity<Object> updateRole(@PathVariable Long id, @RequestBody Role rol, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(rol, headers, PATH_SERVICAD+ROLES+UPDATE+id, HttpMethod.PUT, Void.class);
+        return getObjectResponseEntity(rol, headers, PATH_SERVICAD + ROLES + UPDATE + id, HttpMethod.PUT, Void.class);
     }
 
     @GetMapping("/get-role/{id}")
     public ResponseEntity<Object> updateRole(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+ROLES+id, HttpMethod.GET, Role.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + ROLES + id, HttpMethod.GET, Role.class);
     }
 
     //EQUIPMENT
     @GetMapping("/get-equipment/all")
     public ResponseEntity<Object> getAllEquipment(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EQUIPMENT+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EQUIPMENT + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-equipment")
     public ResponseEntity<Object> createEquipment(@RequestBody Equipment equipment, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(equipment, headers, PATH_SERVICAD+EQUIPMENT+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(equipment, headers, PATH_SERVICAD + EQUIPMENT + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-equipment/{id}")
     public ResponseEntity<Object> updateEquipment(@PathVariable Long id, @RequestBody Equipment equipment, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(equipment, headers, PATH_SERVICAD+EQUIPMENT+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(equipment, headers, PATH_SERVICAD + EQUIPMENT + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-equipment/{id}")
     public ResponseEntity<Object> equipmentById(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EQUIPMENT+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EQUIPMENT + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-equipment/{id}")
+    @DeleteMapping("/delete-equipment/{id}")
     public ResponseEntity<Object> deleteEquipment(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EQUIPMENT+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EQUIPMENT + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
     //SERVICES
     @GetMapping("/get-services/all")
     public ResponseEntity<Object> getAllServices(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-service")
     public ResponseEntity<Object> createService(@RequestBody Services services, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(services, headers, PATH_SERVICAD+SERVICES+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(services, headers, PATH_SERVICAD + SERVICES + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-service/{id}")
     public ResponseEntity<Object> updateService(@PathVariable Long id, @RequestBody Services services, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(services, headers, PATH_SERVICAD+SERVICES+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(services, headers, PATH_SERVICAD + SERVICES + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-service/{id}")
     public ResponseEntity<Object> getOneService(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-servicestatus/{id}")
     public ResponseEntity<Object> getAllServiceStatus(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+STATUS+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + STATUS + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-servicesallbyuc/{id}")
     public ResponseEntity<Object> getAllByUserOrCustomer(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+SERVICEBYUSERORCUSTOMER+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + SERVICEBYUSERORCUSTOMER + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-service/programmed/{id}")
-    public ResponseEntity<Object> getAllServiceByStatusProgrammedCustomer(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException{
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+GETSTATUS+PROGRAMMED+id, HttpMethod.GET, Object.class);
+    public ResponseEntity<Object> getAllServiceByStatusProgrammedCustomer(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + GETSTATUS + PROGRAMMED + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-service/asigned/{id}")
-    public ResponseEntity<Object> getAllServiceByStatusAsigned(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException{
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+GETSTATUS+ASIGNED+id, HttpMethod.GET, Object.class);
+    public ResponseEntity<Object> getAllServiceByStatusAsigned(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + GETSTATUS + ASIGNED + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-service/execution/{id}")
-    public ResponseEntity<Object> getAllServiceByStatusExecution(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException{
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+GETSTATUS+EXECUTION+id, HttpMethod.GET, Object.class);
+    public ResponseEntity<Object> getAllServiceByStatusExecution(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + GETSTATUS + EXECUTION + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-service/completed/{id}")
-    public ResponseEntity<Object> getAllServiceByStatusCompleted(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException{
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+GETSTATUS+COMPLETED+id, HttpMethod.GET, Object.class);
+    public ResponseEntity<Object> getAllServiceByStatusCompleted(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + GETSTATUS + COMPLETED + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-service/{id}")
+    @DeleteMapping("/delete-service/{id}")
     public ResponseEntity<Object> deleteService(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
-    @DeleteMapping ("/delete-service/permanently/{id}")
+    @DeleteMapping("/delete-service/permanently/{id}")
     public ResponseEntity<Object> deleteServicePermanently(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SERVICES+DELETE+PERMANENTLY+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SERVICES + DELETE + PERMANENTLY + id, HttpMethod.DELETE, Object.class);
     }
 
     //BRANCHOFFICE
     @GetMapping("/get-branchoffice/all")
-    public ResponseEntity<Object> getAllBranchOffice(@RequestHeader HttpHeaders headers, @RequestParam(value = "number")String number) throws JsonProcessingException {
+    public ResponseEntity<Object> getAllBranchOffice(@RequestHeader HttpHeaders headers, @RequestParam(value = "number") String number) throws JsonProcessingException {
         Map<String, Object> params = new HashMap<>();
         params.put("number", number);
 
         String uriParams = "?number={number}";
 
-        if (headers != null){
+        if (headers != null) {
             HttpEntity<?> requestEntity = new HttpEntity<>(headers);
             ProxyFacade service = new ProxyFacade(new RestTemplate());
-            return service.postServiceAPI(PATH_SERVICAD+BRANCHOFFICE+ALL+uriParams, HttpMethod.GET, requestEntity, Object.class, params);
+            return service.postServiceAPI(PATH_SERVICAD + BRANCHOFFICE + ALL + uriParams, HttpMethod.GET, requestEntity, Object.class, params);
         }
 
         return ResponseEntity.badRequest().body("Error: no se ha encontrado el token de autorización");
@@ -508,147 +510,152 @@ public class MainController {
 
     @PostMapping("/post-branchoffice")
     public ResponseEntity<Object> createBranchOffice(@RequestBody BranchOffice branchOffice, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(branchOffice, headers, PATH_SERVICAD+BRANCHOFFICE+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(branchOffice, headers, PATH_SERVICAD + BRANCHOFFICE + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-branchoffice/{id}")
     public ResponseEntity<Object> updateBranchOffice(@PathVariable Long id, @RequestBody BranchOffice branchOffice, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(branchOffice, headers, PATH_SERVICAD+BRANCHOFFICE+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(branchOffice, headers, PATH_SERVICAD + BRANCHOFFICE + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-branchoffice/{id}")
     public ResponseEntity<Object> getOneBranchOffice(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+BRANCHOFFICE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + BRANCHOFFICE + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-branchoffice/{id}")
+    @DeleteMapping("/delete-branchoffice/{id}")
     public ResponseEntity<Object> deleteBranchOffice(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+BRANCHOFFICE+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + BRANCHOFFICE + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
     //CITY
     @GetMapping("/get-city/all")
     public ResponseEntity<Object> getAllCity(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+CITY+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + CITY + ALL, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-city/{id}")
     public ResponseEntity<Object> getOneCity(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+CITY+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + CITY + id, HttpMethod.GET, Object.class);
     }
 
     //JOBTITLE
+    @PostMapping("/jobtitle/create")
+    public ResponseEntity<Object> createJobTitle(@RequestBody JobTitle request, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
+        return getObjectResponseEntity(request, headers, PATH_SERVICAD + JOBTITLE + CREATE, HttpMethod.POST, Object.class);
+    }
+
     @GetMapping("/get-jobtitle/all")
     public ResponseEntity<Object> getAllJobTitle(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+JOBTITLE+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + JOBTITLE + ALL, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-jobtitle/{id}")
     public ResponseEntity<Object> getOneJobTitle(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+JOBTITLE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + JOBTITLE + id, HttpMethod.GET, Object.class);
     }
 
     //STATUSSERVICE
     @GetMapping("/get-statusservice/all")
     public ResponseEntity<Object> getAllStatusService(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+STATUSSERVICE+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + STATUSSERVICE + ALL, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-statusservice/{id}")
     public ResponseEntity<Object> getOneStatusService(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+STATUSSERVICE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + STATUSSERVICE + id, HttpMethod.GET, Object.class);
     }
 
     //TYPESERVICE
     @GetMapping("/get-typeservice/all")
     public ResponseEntity<Object> getAllTypeServices(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+TYPESERVICE+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + TYPESERVICE + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-typeservice")
     public ResponseEntity<Object> createTypeServices(@RequestBody TypeService typeService, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(typeService, headers, PATH_SERVICAD+TYPESERVICE+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(typeService, headers, PATH_SERVICAD + TYPESERVICE + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-typeservice/{id}")
     public ResponseEntity<Object> updateTypeServices(@PathVariable Long id, @RequestBody TypeService typeService, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(typeService, headers, PATH_SERVICAD+TYPESERVICE+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(typeService, headers, PATH_SERVICAD + TYPESERVICE + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-typeservice/{id}")
     public ResponseEntity<Object> getOneTypeServices(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+TYPESERVICE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + TYPESERVICE + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-typeservice/{id}")
+    @DeleteMapping("/delete-typeservice/{id}")
     public ResponseEntity<Object> deleteTypeServices(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+TYPESERVICE+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + TYPESERVICE + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
-    //USERS
+    //USER
     @GetMapping("/get-users/all")
     public ResponseEntity<Object> getAllUsers(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+USERS+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + USERS + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-users")
     public ResponseEntity<Object> createUsers(@RequestBody User user, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(user, headers, PATH_SERVICAD+USERS+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(user, headers, PATH_SERVICAD + USERS + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-users/{id}")
     public ResponseEntity<Object> updateUsers(@PathVariable Long id, @RequestBody User user, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(user, headers, PATH_SERVICAD+USERS+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(user, headers, PATH_SERVICAD + USERS + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-users/{id}")
     public ResponseEntity<Object> getOneUsers(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+USERS+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + USERS + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-userscustomer/{id}")
     public ResponseEntity<Object> getOneUsersCustomer(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+USERS+USERSCUSTOMER+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + USERS + USERSCUSTOMER + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-usersrole/{id}")
     public ResponseEntity<Object> getOneUsersRole(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+USERS+USERSROLE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + USERS + USERSROLE + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-users/{id}")
+    @DeleteMapping("/delete-users/{id}")
     public ResponseEntity<Object> deleteUsers(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+USERS+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + USERS + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
     //TIME SETTING
     @PutMapping("/put-time/{id}")
     public ResponseEntity<Object> updateTime(@PathVariable Long id, @RequestBody Time time, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(time, headers, PATH_SERVICAD+TIME+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(time, headers, PATH_SERVICAD + TIME + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-time/{id}")
     public ResponseEntity<Object> getTimeById(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers,PATH_SERVICAD+TIME+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + TIME + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-time/name/{name}")
     public ResponseEntity<Object> getTimeByName(@PathVariable String name) throws JsonProcessingException {
-        return getObjectResponseEntity(null, null,PATH_SERVICAD+TIME+TIMEBYNAME+name, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, null, PATH_SERVICAD + TIME + TIMEBYNAME + name, HttpMethod.GET, Object.class);
     }
 
     //CONTACTS
     @GetMapping("/get-contact/all")
-    public ResponseEntity<Object> getAllContact(@RequestHeader HttpHeaders headers, @RequestParam(value = "number")String number) throws JsonProcessingException {
+    public ResponseEntity<Object> getAllContact(@RequestHeader HttpHeaders headers, @RequestParam(value = "number") String number) throws JsonProcessingException {
         Map<String, Object> params = new HashMap<>();
         params.put("number", number);
 
         String uriParams = "?number={number}";
 
-        if (headers != null){
+        if (headers != null) {
             HttpEntity<?> requestEntity = new HttpEntity<>(headers);
             ProxyFacade service = new ProxyFacade(new RestTemplate());
-            return service.postServiceAPI(PATH_SERVICAD+CONTACT+ALL+uriParams, HttpMethod.GET, requestEntity, Object.class, params);
+            return service.postServiceAPI(PATH_SERVICAD + CONTACT + ALL + uriParams, HttpMethod.GET, requestEntity, Object.class, params);
         }
 
         return ResponseEntity.badRequest().body("Error: no se ha encontrado el token de autorización");
@@ -656,36 +663,36 @@ public class MainController {
 
     @PostMapping("/post-contact")
     public ResponseEntity<Object> createContact(@RequestBody Contact contact, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(contact, headers, PATH_SERVICAD+CONTACT+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(contact, headers, PATH_SERVICAD + CONTACT + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-contact/{id}")
     public ResponseEntity<Object> updateContact(@PathVariable Long id, @RequestBody Contact contact, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(contact, headers, PATH_SERVICAD+CONTACT+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(contact, headers, PATH_SERVICAD + CONTACT + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-contact/{id}")
     public ResponseEntity<Object> getOneContact(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+CONTACT+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + CONTACT + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-contact/{id}")
+    @DeleteMapping("/delete-contact/{id}")
     public ResponseEntity<Object> deleteContact(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+CONTACT+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + CONTACT + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
     //COURSES
     @GetMapping("/get-courses/name")
-    public ResponseEntity<Object> getCoursesByName(@RequestHeader HttpHeaders headers, @RequestParam(value = "number")String name) throws JsonProcessingException {
+    public ResponseEntity<Object> getCoursesByName(@RequestHeader HttpHeaders headers, @RequestParam(value = "number") String name) throws JsonProcessingException {
         Map<String, Object> params = new HashMap<>();
         params.put("name", name);
 
         String uriParams = "?name={name}";
 
-        if (headers != null){
+        if (headers != null) {
             HttpEntity<?> requestEntity = new HttpEntity<>(headers);
             ProxyFacade service = new ProxyFacade(new RestTemplate());
-            return service.postServiceAPI(PATH_SERVICAD+COURSE+BYNAME+uriParams, HttpMethod.GET, requestEntity, Object.class, params);
+            return service.postServiceAPI(PATH_SERVICAD + COURSE + BYNAME + uriParams, HttpMethod.GET, requestEntity, Object.class, params);
         }
 
         return ResponseEntity.badRequest().body("Error: no se ha encontrado el token de autorización");
@@ -693,41 +700,41 @@ public class MainController {
 
     @PostMapping("/post-course")
     public ResponseEntity<Object> createCourse(@RequestBody Course course, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(course, headers, PATH_SERVICAD+COURSE+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(course, headers, PATH_SERVICAD + COURSE + CREATE, HttpMethod.POST, Object.class);
     }
 
     @GetMapping("/get-courses/all")
     public ResponseEntity<Object> getCoursesAll(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+COURSE+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + COURSE + ALL, HttpMethod.GET, Object.class);
     }
 
     @PutMapping("/put-course/{id}")
     public ResponseEntity<Object> updateCourse(@PathVariable Long id, @RequestBody Course course, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(course, headers, PATH_SERVICAD+CONTACT+COURSE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(course, headers, PATH_SERVICAD + CONTACT + COURSE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-course/{id}")
     public ResponseEntity<Object> getOneCourse(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+COURSE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + COURSE + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-course/{id}")
+    @DeleteMapping("/delete-course/{id}")
     public ResponseEntity<Object> deleteCourse(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+COURSE+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + COURSE + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
     //COURSES EMPLOYEE
     @GetMapping("/get-coursesemployee/all")
-    public ResponseEntity<Object> getCoursesByNumberIdentification(@RequestHeader HttpHeaders headers, @RequestParam(value = "name")String number) throws JsonProcessingException {
+    public ResponseEntity<Object> getCoursesByNumberIdentification(@RequestHeader HttpHeaders headers, @RequestParam(value = "name") String number) throws JsonProcessingException {
         Map<String, Object> params = new HashMap<>();
         params.put("number", number);
 
         String uriParams = "?number={number}";
 
-        if (headers != null){
+        if (headers != null) {
             HttpEntity<?> requestEntity = new HttpEntity<>(headers);
             ProxyFacade service = new ProxyFacade(new RestTemplate());
-            return service.postServiceAPI(PATH_SERVICAD+COURSESEMPLOYEE+ALL+uriParams, HttpMethod.GET, requestEntity, Object.class, params);
+            return service.postServiceAPI(PATH_SERVICAD + COURSESEMPLOYEE + ALL + uriParams, HttpMethod.GET, requestEntity, Object.class, params);
         }
 
         return ResponseEntity.badRequest().body("Error: no se ha encontrado el token de autorización");
@@ -735,62 +742,62 @@ public class MainController {
 
     @PostMapping("/post-courseemployee")
     public ResponseEntity<Object> createCourseEmployee(@RequestBody CourseEmployee course, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(course, headers, PATH_SERVICAD+COURSESEMPLOYEE+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(course, headers, PATH_SERVICAD + COURSESEMPLOYEE + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-courseemployee/{id}")
     public ResponseEntity<Object> updateCourseEmployee(@PathVariable Long id, @RequestBody CourseEmployee course, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(course, headers, PATH_SERVICAD+COURSESEMPLOYEE+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(course, headers, PATH_SERVICAD + COURSESEMPLOYEE + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-courseemployee/{id}")
     public ResponseEntity<Object> getOneCourseEmployee(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+COURSESEMPLOYEE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + COURSESEMPLOYEE + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-courseemployee/{id}")
+    @DeleteMapping("/delete-courseemployee/{id}")
     public ResponseEntity<Object> deleteCourseEmployee(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+COURSESEMPLOYEE+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + COURSESEMPLOYEE + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
     //SIGNAGES
     @GetMapping("/get-signages/all")
     public ResponseEntity<Object> getAllSignages(@RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SIGNAGE+ALL, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SIGNAGE + ALL, HttpMethod.GET, Object.class);
     }
 
     @PostMapping("/post-signage")
     public ResponseEntity<Object> createSignage(@RequestBody Signage signage, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(signage, headers, PATH_SERVICAD+SIGNAGE+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(signage, headers, PATH_SERVICAD + SIGNAGE + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-signage/{id}")
     public ResponseEntity<Object> updateSignage(@PathVariable Long id, @RequestBody Signage signage, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(signage, headers, PATH_SERVICAD+SIGNAGE+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(signage, headers, PATH_SERVICAD + SIGNAGE + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-signage/{id}")
     public ResponseEntity<Object> SignageById(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SIGNAGE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SIGNAGE + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-signage/{id}")
+    @DeleteMapping("/delete-signage/{id}")
     public ResponseEntity<Object> deleteSignage(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+SIGNAGE+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + SIGNAGE + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
     //EQUIPMENT FILES
     @GetMapping("/get-equipmentfiles/all")
-    public ResponseEntity<Object> getAllEquipmentFiles(@RequestHeader HttpHeaders headers, @RequestParam(value = "serial")String serial) throws JsonProcessingException {
+    public ResponseEntity<Object> getAllEquipmentFiles(@RequestHeader HttpHeaders headers, @RequestParam(value = "serial") String serial) throws JsonProcessingException {
         Map<String, Object> params = new HashMap<>();
         params.put("serial", serial);
 
         String uriParams = "?serial={serial}";
 
-        if (headers != null){
+        if (headers != null) {
             HttpEntity<?> requestEntity = new HttpEntity<>(headers);
             ProxyFacade service = new ProxyFacade(new RestTemplate());
-            return service.postServiceAPI(PATH_SERVICAD+EQUIPMENTFILE+ALL+uriParams, HttpMethod.GET, requestEntity, Object.class, params);
+            return service.postServiceAPI(PATH_SERVICAD + EQUIPMENTFILE + ALL + uriParams, HttpMethod.GET, requestEntity, Object.class, params);
         }
 
         return ResponseEntity.badRequest().body("Error: no se ha encontrado el token de autorización");
@@ -798,38 +805,53 @@ public class MainController {
 
     @PostMapping("/post-equipmentfile")
     public ResponseEntity<Object> createEquipmentFile(@RequestBody EquipmentFile equipmentFile, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(equipmentFile, headers, PATH_SERVICAD+EQUIPMENTFILE+CREATE, HttpMethod.POST, Object.class);
+        return getObjectResponseEntity(equipmentFile, headers, PATH_SERVICAD + EQUIPMENTFILE + CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-equipmentfile/{id}")
     public ResponseEntity<Object> updateEquipmentFile(@PathVariable Long id, @RequestBody EquipmentFile equipmentFile, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(equipmentFile, headers, PATH_SERVICAD+EQUIPMENTFILE+UPDATE+id, HttpMethod.PUT, Object.class);
+        return getObjectResponseEntity(equipmentFile, headers, PATH_SERVICAD + EQUIPMENTFILE + UPDATE + id, HttpMethod.PUT, Object.class);
     }
 
     @GetMapping("/get-equipmentfile/idfile/{id}")
     public ResponseEntity<Object> getOneEquipmentFileByIdFile(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EQUIPMENTFILE+IDFILE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EQUIPMENTFILE + IDFILE + id, HttpMethod.GET, Object.class);
     }
 
     @GetMapping("/get-equipmentfile/{id}")
     public ResponseEntity<Object> getOneEquipmentFile(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EQUIPMENTFILE+id, HttpMethod.GET, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EQUIPMENTFILE + id, HttpMethod.GET, Object.class);
     }
 
-    @DeleteMapping ("/delete-equipmentfile/{id}")
+    @DeleteMapping("/delete-equipmentfile/{id}")
     public ResponseEntity<Object> deleteEquipmentFile(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+EQUIPMENTFILE+DELETE+id, HttpMethod.DELETE, Object.class);
+        return getObjectResponseEntity(null, headers, PATH_SERVICAD + EQUIPMENTFILE + DELETE + id, HttpMethod.DELETE, Object.class);
     }
 
     //COMMENTS
-    @GetMapping("/get-comment/all/{id}")
-    public ResponseEntity<Object> getAllComments(@RequestHeader HttpHeaders headers, @PathVariable Long id) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+COMMENT+ALL+"/"+id, HttpMethod.GET, Object.class);
-    }
+    @GetMapping("/get-comment/all/")
+    public ResponseEntity<Object> getAllComments(@RequestHeader HttpHeaders headers, @RequestParam(value = "service") Long service, @RequestParam(value = "type") Long type) throws JsonProcessingException {
+        Map<String, Object> params = new HashMap<>();
+        params.put("service", service);
+        params.put("type", type);
+        String uriParamSer = ("?service={service}");
+        String uriParamTyp = ("&type={type}");
 
+        if (headers != null) {
+            HttpEntity<?> requestEntity = new HttpEntity<>(headers);
+            ProxyFacade proxy = new ProxyFacade(new RestTemplate());
+            return proxy.postServiceAPI(PATH_SERVICAD + COMMENT + ALL+"/"+uriParamSer + uriParamTyp , HttpMethod.GET, requestEntity, Object.class, params);
+        }
+        return ResponseEntity.badRequest().body("Error: no se ha encontrado el token de autorización");
+    }
     @PostMapping("/post-comment")
     public ResponseEntity<Object> createComment(@RequestBody Comment comment, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
         return getObjectResponseEntity(comment, headers, PATH_SERVICAD+COMMENT+CREATE, HttpMethod.POST, Object.class);
+    }
+
+    @PostMapping("/post-bitacora")
+    public ResponseEntity<Object> createBitacora(@RequestBody Comment comment, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
+        return getObjectResponseEntity(comment, headers, PATH_SERVICAD+COMMENT+BITACORA+CREATE, HttpMethod.POST, Object.class);
     }
 
     @PutMapping("/put-comment/{id}")

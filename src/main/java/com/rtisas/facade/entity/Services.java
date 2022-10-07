@@ -44,5 +44,6 @@ public class Services {
     @JoinColumn(name = "crew_leader_service")
     private Employee crewLeader;
     private Employee projectCoordinator;
+    private String largeDescription;
 
 }

@@ -11,4 +11,5 @@ public class FilesDC {
     private DeliveryCertificate deliveryCertificate;
     private File file;
     private FiltersFilesDC filtersFilesDC;
+    private String fileDescription;
 }

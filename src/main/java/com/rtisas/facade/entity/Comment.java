@@ -17,4 +17,5 @@ public class Comment {
     private boolean statusComment;
     private Services serviceComment;
     private User userId;
+    private Long type;
 }
