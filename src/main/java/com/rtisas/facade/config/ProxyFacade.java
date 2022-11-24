@@ -21,13 +21,9 @@ public class ProxyFacade {
         ResponseEntity<?> result;
         try {
             result = service.exchange(URL, method, request, responseType);
-            if (result.getStatusCode().equals(HttpStatus.OK)) {
                 return ResponseEntity.ok().body(result.getBody());
-            } else {
-                return ResponseEntity.badRequest().body("Error:\n" + result.getBody());
-            }
         } catch (HttpStatusCodeException e) {
-            return ResponseEntity.badRequest().body("Error por parte del servidor\nCode: " + e.getStatusCode().value() + "\nMessage: " + e.getStatusCode().getReasonPhrase());
+            return ResponseEntity.status(e.getStatusCode()).body(e.getMessage().substring(7, e.getMessage().length()-1));
         }
 
     }
@@ -36,15 +32,10 @@ public class ProxyFacade {
         ResponseEntity<?> result;
         try {
             result = service.exchange(URL, method, request, responseType, params);
-            if (result.getStatusCode().equals(HttpStatus.OK)) {
-                return ResponseEntity.ok().body(result.getBody());
-            } else {
-                return ResponseEntity.badRequest().body("Error:\n" + result.getBody());
-            }
+            return ResponseEntity.ok().body(result.getBody());
         } catch (HttpStatusCodeException e) {
             return ResponseEntity.badRequest().body("Error por parte del servidor\nCode: " + e.getStatusCode().value() + "\nMessage: " + e.getStatusCode().getReasonPhrase());
         }
-
     }
 
 

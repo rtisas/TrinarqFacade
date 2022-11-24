@@ -955,8 +955,19 @@ public class MainController {
 
     //GENERATE FINAL REPORT
     @GetMapping("/get-report/{id}")
-    public ResponseEntity<Object> reportByIdDC(@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
-        return getObjectResponseEntity(null, headers, PATH_SERVICAD+REPORT+GENERATE+id, HttpMethod.GET, byte[].class);
+    public ResponseEntity<Object> reportByIdDC(@RequestParam(value = "withImageDuring")Boolean withImageDuring,@PathVariable Long id, @RequestHeader HttpHeaders headers) throws JsonProcessingException {
+        Map<String, Object> params = new HashMap<>();
+        params.put("withImageDuring", withImageDuring);
+
+        String pdfGenerate = ("?withImageDuring={withImageDuring}");
+
+        if (headers != null) {
+            HttpEntity<?> requestEntity = new HttpEntity<>(headers);
+            ProxyFacade proxy = new ProxyFacade(new RestTemplate());
+            return proxy.postServiceAPI(PATH_SERVICAD+REPORT+GENERATE+id+pdfGenerate, HttpMethod.GET, requestEntity, byte[].class, params);
+            //getObjectResponseEntity(withImageDuring, headers, PATH_SERVICAD+REPORT+GENERATE+id+pdfGenerate, HttpMethod.GET, byte[].class);
+        }
+        return ResponseEntity.badRequest().body("Error: no se ha encontrado el token de autorización");
     }
 
     //GENERATE CODE TEMPORAL PASSWORD
